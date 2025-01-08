@@ -33,11 +33,11 @@ At this point, we will explain the contents of the data folder. Inside the data 
 
 ## Tweet count
 
-[ 1 IMAGE ]
+![1](https://github.com/user-attachments/assets/630cfd0d-9daa-4527-a5a9-79f6c1941ae4)
 
 We notice that since the beginning of the graph and for a very long period of time, there have not been many tweets, so we will assume that those are outsiders, and we will deal only with the data that is from 01/03/2009 and onwards.
 
-[ 2 IMAGE ]
+![2](https://github.com/user-attachments/assets/bd32704c-7f5a-454a-b037-c5e0e1dc948e)
 
 > Note: We notice that the tweets are unevenly distributed in the graph as there are large ups and downs without following any pattern. As a result, we must mention that the time series analysis will not have optimal results as the data has unpredictable fluctuations.
 
@@ -45,7 +45,7 @@ We notice that since the beginning of the graph and for a very long period of ti
 
 We create the autocorrelation function to see if the data are stationary.
 
-[ 3 IMAGE ]
+![3](https://github.com/user-attachments/assets/e5e318aa-3590-4859-98c1-85e8c289ec3f)
 
 We notice that the first nodes are not in the blue area, so we know that our data have a trend and/or seasonality (meaning that the data are not stationary).
 
@@ -53,7 +53,7 @@ We notice that the first nodes are not in the blue area, so we know that our dat
 
 ## Seasonal Decomposition
 
-[ 4 IMAGE ]
+![4](https://github.com/user-attachments/assets/15ca5ad8-cb7b-42f1-a61e-ee83c931fdfa)
 
 ## Exponential Smoothing Models
 
@@ -78,19 +78,19 @@ During these experiments, we created four models:
 
 After the models are trained on 80% of the data and output the predictions, we calculate the MSE of each of the four models based on the remaining 20%.
 
-[ 5 IMAGE ]
+![5](https://github.com/user-attachments/assets/b74dfe38-e524-4422-9f08-3daa4b172ecb)
 
 ### Forecast
 
 Then we keep the values of the smoothing level and slope that minimize the MSE of the BEST model (specifically, 0.5 and 0.2). Based on these values, we show in a diagram the predictions of each model.
 
-[ 6 IMAGE ]
+![6](https://github.com/user-attachments/assets/da412f52-c10a-40f4-b709-a73f2ee5952c)
 
 We can see that BEST is indeed closer to the actual data line compared to the others. Also, the shape of the line in each model reveals the differences between those models. For example, DES seems to be better than SES because its forecat line takes trend into account. Furthermore, TES also takes seasonality into account (we can see that the brown line is not just a straight line); therefore, the use of TES leads to a smaller MSE.
 
 ### Compare MSEs
 
-[ 7 IMAGE ]
+![7](https://github.com/user-attachments/assets/b20333ed-32b0-4b3c-89b5-c2e950e17bf4)
 
 In this graph, we see that BEST has the smallest error compared to the rest. But as mentioned above, the mean squared error is very large (we see that the scale is in $10^8$), which indicates that time series analysis for this data should not be the preferred method.
 
@@ -111,10 +111,10 @@ By doing this process, we found that grouping by 14 days has the lowest MSE, so 
 
 Regarding the implementation of the sentiment analysis, we initially removed all mentions from the messages as the names of the users might have influenced the final sentiment of the tweet. Then we chose a transformer-based model, Roberta, which was fine-tuned on Twitter data specifically for sentiment analysis. We emphasized the speed of the model because the number of tweets we had was tremendous.
 
-[ 8 IMAGE ]
+![8](https://github.com/user-attachments/assets/e19fa706-5b50-4f68-ad2c-30d1a86243d1)
 
 ## Geolocation Analysis
 
 Finally, we did a geographic analysis, and we used a library to create a map. We chose a library that will nicely display the states to the user (it generates and opens an HTML file so for the user to be able to interact with the map) and the number of tweets posted by each state (any tweet not from a state of America is ignored).
 
-[ 9 IMAGE ]
+![9](https://github.com/user-attachments/assets/d21162da-3248-47d0-a2ec-47386bb64a30)
