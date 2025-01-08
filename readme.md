@@ -14,6 +14,7 @@ The datasets we used are:
 2. [USA states GeoLocation from Kate Gallo](https://www.kaggle.com/datasets/pompelmo/usa-states-geojson)
 3. [United States Cities from Sergej Nuss](https://www.kaggle.com/datasets/sergejnuss/united-states-cities-database)
 
+Due to large output files, the data folder isn't uploaded here.
 
 ## Preprocess
 
